@@ -26,8 +26,7 @@ public class View implements Observer {
                  
         button = new JButton("ALARMS");
         pane.add(button, BorderLayout.LINE_START);
-        
-         
+                 
         button = new JButton("SAVE");
         pane.add(button, BorderLayout.LINE_END);
         
@@ -40,7 +39,8 @@ public class View implements Observer {
         frame.setVisible(true);
     }
     
-    public void update(Observable o, Object arg) {
+    public void update(Observable o, Object arg) 
+    {
         panel.repaint();
     }
 }
