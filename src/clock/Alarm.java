@@ -8,7 +8,6 @@ import java.util.Calendar;
 //**  17th April 2018                                   **
 //********************************************************
 
-
 public class Alarm 
 {
     Calendar alarm;
