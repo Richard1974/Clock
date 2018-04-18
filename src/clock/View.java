@@ -21,17 +21,22 @@ public class View implements Observer {
         panel.setPreferredSize(new Dimension(200, 200));
         pane.add(panel, BorderLayout.PAGE_START);
         
-        JButton button = new JButton("LOAD");
-        pane.add(button, BorderLayout.CENTER);
+        JButton alarmButton = new JButton("ALARMS");
+        alarmButton.addActionListener(new AlarmButtonHandler());
+        pane.add(alarmButton, BorderLayout.LINE_START);
                  
-        button = new JButton("ALARMS");
-        pane.add(button, BorderLayout.LINE_START);
+        JButton loadButton = new JButton("LOAD");
+        loadButton.addActionListener(new LoadButtonHandler());
+        pane.add(loadButton, BorderLayout.CENTER);
                  
-        button = new JButton("SAVE");
-        pane.add(button, BorderLayout.LINE_END);
+        JButton saveButton = new JButton("SAVE");
+        saveButton.addActionListener(new SaveButtonHandler());
+        pane.add(saveButton, BorderLayout.LINE_END);
         
-        button = new JButton("TBA");
-        pane.add(button, BorderLayout.PAGE_END);
+        JButton tbaButton = new JButton("TBA");
+        pane.add(tbaButton, BorderLayout.PAGE_END);
+        
+        
         
         // End of borderlayout code
         
