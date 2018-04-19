@@ -9,6 +9,7 @@ public class View implements Observer {
     
     ClockPanel panel;
     
+    
     public View(Model model) {
         JFrame frame = new JFrame();
         panel = new ClockPanel(model);
@@ -21,8 +22,8 @@ public class View implements Observer {
         panel.setPreferredSize(new Dimension(200, 200));
         pane.add(panel, BorderLayout.PAGE_START);
         
-        JButton alarmButton = new JButton("ALARMS");
-        alarmButton.addActionListener(new AlarmButtonHandler());
+        JButton alarmButton = new JButton("ADD ALARM");
+        alarmButton.addActionListener(new AlarmButtonHandler(new AddAlarmDialog(frame)));
         pane.add(alarmButton, BorderLayout.LINE_START);
                  
         JButton loadButton = new JButton("LOAD");
