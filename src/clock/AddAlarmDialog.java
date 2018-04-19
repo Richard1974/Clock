@@ -1,21 +1,30 @@
 package clock;
 
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JSpinner;
 //********************************************************
 //**  AddAlarmDialog                                    **
 //**  A Dialog for entering alarm details               **
 //**  @author Richard Coldwell                          **
 //**  19th April 2018                                   **
 //********************************************************
-public class AddAlarmDialog extends JDialog{    
+public class AddAlarmDialog extends JDialog{   
+    
+    private JButton addButton;
+    private JButton cancelButton;
+    private JSpinner hour;
+    private JSpinner minute;
+    
+    
+    
     public AddAlarmDialog(JFrame parent)
     {
-        super(parent, "Add Alarm", false);
-        
-        
+        super(parent, "Add Alarm", true);
         setSize(200,200);
+        
     }
 
     

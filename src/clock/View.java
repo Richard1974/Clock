@@ -23,7 +23,7 @@ public class View implements Observer {
         pane.add(panel, BorderLayout.PAGE_START);
         
         JButton alarmButton = new JButton("ADD ALARM");
-        alarmButton.addActionListener(new AlarmButtonHandler(new AddAlarmDialog(frame)));
+        alarmButton.addActionListener(new AlarmButtonHandler(new AddAlarmDialog(frame), frame));
         pane.add(alarmButton, BorderLayout.LINE_START);
                  
         JButton loadButton = new JButton("LOAD");
