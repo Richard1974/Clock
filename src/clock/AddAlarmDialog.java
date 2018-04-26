@@ -1,10 +1,14 @@
 package clock;
 
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import javax.swing.SpinnerNumberModel;
 //********************************************************
 //**  AddAlarmDialog                                    **
 //**  A Dialog for entering alarm details               **
@@ -16,18 +20,23 @@ public class AddAlarmDialog extends JDialog{
     private JButton addButton;
     private JButton cancelButton;
     private JSpinner hour;
+    private SpinnerNumberModel hourModel;
     private JSpinner minute;
+    private SpinnerNumberModel minuteModel;
     
     
     
     public AddAlarmDialog(JFrame parent)
     {
         super(parent, "Add Alarm", true);
+        
         addButton = new JButton("Add");
         cancelButton = new JButton("Cancel");
         
         
         setSize(200,200);
+        
+       
         
     }
 
