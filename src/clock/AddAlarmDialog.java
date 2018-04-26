@@ -23,6 +23,10 @@ public class AddAlarmDialog extends JDialog{
     public AddAlarmDialog(JFrame parent)
     {
         super(parent, "Add Alarm", true);
+        addButton = new JButton("Add");
+        cancelButton = new JButton("Cancel");
+        
+        
         setSize(200,200);
         
     }
