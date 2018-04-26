@@ -13,11 +13,16 @@ public class Clock {
         PriorityQueue<Alarm> q;
         q = new UnsortedArrayPriorityQueue<>(8);
         Alarm alarm = new Alarm(Calendar.getInstance());
-        Date date = new Date(118, 03, 26);
-        alarm.setDate(date);
+        alarm.setDate(12, 3, 2001);
         alarm.setTime(11, 49);
         q.add(alarm);
-        System.out.println("Alarm " + alarm);
+       Alarm alarmTwo = new Alarm(Calendar.getInstance());
+
+        alarmTwo.setDate(4, 10, 2011);
+        alarmTwo.setTime(17, 21);
+        q.add(alarmTwo);
+        
+        //System.out.println("Alarm " + alarm);
         System.out.println("q.toString() " + q.toString());
     }
 }
