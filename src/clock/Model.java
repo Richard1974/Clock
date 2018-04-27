@@ -6,13 +6,17 @@ import java.util.Observable;
 
 public class Model extends Observable {
     
+    
+        
+    
+    
     int hour = 0;
     int minute = 0;
     int second = 0;
     
     int oldSecond = 0;
     
-    public Model() {
+    public Model(PriorityQueue<Alarm> q) {
         update();
     }
     

@@ -3,15 +3,15 @@ package clock;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
-import javax.swing.SpinnerNumberModel;
 //********************************************************
 //**  AddAlarmDialog                                    **
 //**  A Dialog for entering alarm details               **
@@ -21,10 +21,10 @@ import javax.swing.SpinnerNumberModel;
 public class AddAlarmDialog extends JDialog{   
     
     private JButton addButton;
-    private JButton cancelButton;
+   // private JButton cancelButton;
     private JSpinner alarmEntrySpinner;
     private SpinnerDateModel alarmEntryModel;
-    
+    PriorityQueue<Alarm> q;
     
     
     
@@ -33,7 +33,7 @@ public class AddAlarmDialog extends JDialog{
         super(parent, "Add Alarm", true);
         
         addButton = new JButton("Add");
-        cancelButton = new JButton("Cancel");
+       // cancelButton = new JButton("Cancel");
         alarmEntryModel = new SpinnerDateModel();
         alarmEntrySpinner = new JSpinner(alarmEntryModel);
         
@@ -54,17 +54,19 @@ public class AddAlarmDialog extends JDialog{
         add(alarmEntrySpinner, gc );
         
         gc.gridy ++;
+        addButton.addActionListener(new AddAlarmButtonHandler(q,  alarmEntryModel));
         add(addButton, gc);
         
-        gc.gridy ++;
-        add(cancelButton, gc);
+        //gc.gridy ++;
+       // add(cancelButton, gc);
         
         
         setSize(200,200);
         
-       
-        
+              
     }
+
+   
 
     
 }

@@ -8,9 +8,9 @@ import java.util.Observable;
 public class View implements Observer {
     
     ClockPanel panel;
+    PriorityQueue<Alarm> q;
     
-    
-    public View(Model model) {
+    public View(Model model, PriorityQueue<Alarm> q) {
         JFrame frame = new JFrame();
         panel = new ClockPanel(model);
         frame.setTitle("Java Clock");
@@ -23,7 +23,7 @@ public class View implements Observer {
         pane.add(panel, BorderLayout.PAGE_START);
         
         JButton alarmButton = new JButton("ADD ALARM");
-        alarmButton.addActionListener(new AlarmButtonHandler(new AddAlarmDialog(frame), frame));
+        alarmButton.addActionListener(new AlarmButtonHandler(new AddAlarmDialog(frame), frame, q));
         pane.add(alarmButton, BorderLayout.LINE_START);
                  
         JButton loadButton = new JButton("LOAD");

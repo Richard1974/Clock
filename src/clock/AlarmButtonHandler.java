@@ -16,7 +16,7 @@ public class AlarmButtonHandler implements ActionListener{
      private JFrame parent;
     
     
-    public AlarmButtonHandler(AddAlarmDialog d, JFrame j) 
+    public AlarmButtonHandler(AddAlarmDialog d, JFrame j, PriorityQueue<Alarm> q) 
     {
         dialog = d;
         dialog.setVisible(false);
