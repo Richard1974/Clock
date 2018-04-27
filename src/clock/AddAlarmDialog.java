@@ -22,10 +22,9 @@ public class AddAlarmDialog extends JDialog{
     
     private JButton addButton;
     private JButton cancelButton;
-    private JSpinner hourSpinner;
-    private SpinnerNumberModel hourModel;
-    private JSpinner minuteSpinner;
-    private SpinnerNumberModel minuteModel;
+    private JSpinner alarmEntrySpinner;
+    private SpinnerDateModel alarmEntryModel;
+    
     
     
     
@@ -35,10 +34,9 @@ public class AddAlarmDialog extends JDialog{
         
         addButton = new JButton("Add");
         cancelButton = new JButton("Cancel");
-        hourModel = new SpinnerNumberModel(1, 1, 12, 1);
-        hourSpinner = new JSpinner(hourModel);
-        minuteModel = new SpinnerNumberModel(0, 0, 59, 1);
-        minuteSpinner = new JSpinner(minuteModel);
+        alarmEntryModel = new SpinnerDateModel();
+        alarmEntrySpinner = new JSpinner(alarmEntryModel);
+        
         
         setLayout(new GridBagLayout());
         
@@ -49,15 +47,18 @@ public class AddAlarmDialog extends JDialog{
         gc.fill = GridBagConstraints.NONE;
         
         gc.gridx = 0;
-        add(new JLabel ("Hours"), gc);
-        gc.gridx ++;
-        add(new JLabel ("Minutes"), gc);
-       
+        add(new JLabel ("Enter Alarm"), gc);
+               
         gc.gridy ++;
         gc.gridx = 0;
-        add(hourSpinner, gc );
-        gc.gridx ++;
-        add(minuteSpinner, gc );
+        add(alarmEntrySpinner, gc );
+        
+        gc.gridy ++;
+        add(addButton, gc);
+        
+        gc.gridy ++;
+        add(cancelButton, gc);
+        
         
         setSize(200,200);
         
