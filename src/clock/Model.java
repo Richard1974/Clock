@@ -5,18 +5,14 @@ import java.util.Observable;
 //import java.util.GregorianCalendar;
 
 public class Model extends Observable {
-    
-    
-        
-    
-    
+       
     int hour = 0;
     int minute = 0;
     int second = 0;
     
     int oldSecond = 0;
     
-    public Model(PriorityQueue<Alarm> q) {
+    public Model() {
         update();
     }
     

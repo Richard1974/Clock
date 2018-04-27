@@ -31,7 +31,7 @@ public class AddAlarmDialog extends JDialog{
     public AddAlarmDialog(JFrame parent)
     {
         super(parent, "Add Alarm", true);
-        
+         q = new UnsortedArrayPriorityQueue<>(8);
         addButton = new JButton("Add");
        // cancelButton = new JButton("Cancel");
         alarmEntryModel = new SpinnerDateModel();

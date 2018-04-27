@@ -26,12 +26,18 @@ public class Alarm
     public String toString() {
         return getAlarm().getTime().toString();
     }
-    public void setDate(int day, int month, int year)
+    
+    public void setDate(Date date)
+    {
+        alarm.setTime(date);
+    }
+    
+    /*public void setDate(int day, int month, int year)
     {
         alarm.set(Calendar.DAY_OF_MONTH, day);
         alarm.set(Calendar.MONTH, month);
         alarm.set(Calendar.YEAR, year);
-    }
+    }*/
     
     public void setTime(int hour, int minute)
     {

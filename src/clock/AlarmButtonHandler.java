@@ -1,6 +1,7 @@
 package clock;
 
 import java.awt.event.*;
+import java.util.Calendar;
 import javax.swing.JFrame;
 
 //********************************************************
@@ -14,13 +15,14 @@ public class AlarmButtonHandler implements ActionListener{
     
      private AddAlarmDialog dialog;
      private JFrame parent;
-    
+     PriorityQueue<Alarm> queue;
     
     public AlarmButtonHandler(AddAlarmDialog d, JFrame j, PriorityQueue<Alarm> q) 
     {
         dialog = d;
         dialog.setVisible(false);
         parent = j;
+        queue = q;
     }
 
    
@@ -29,5 +31,8 @@ public class AlarmButtonHandler implements ActionListener{
          System.out.println("Alarm Button Pressed");
          dialog.setLocationRelativeTo(parent);
          dialog.setVisible(true);
+         dialog.q = queue;
+         
+        
     }
 }
