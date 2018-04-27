@@ -9,10 +9,12 @@ public class View implements Observer {
     
     ClockPanel panel;
     PriorityQueue<Alarm> q;
+    AlarmPanel alarmPanel;
     
     public View(Model model, PriorityQueue<Alarm> q) {
         JFrame frame = new JFrame();
         panel = new ClockPanel(model);
+        alarmPanel = new AlarmPanel(q);
         frame.setTitle("Java Clock");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -34,8 +36,11 @@ public class View implements Observer {
         saveButton.addActionListener(new SaveButtonHandler());
         pane.add(saveButton, BorderLayout.LINE_END);
         
-        JButton tbaButton = new JButton("TBA");
-        pane.add(tbaButton, BorderLayout.PAGE_END);
+        //JButton tbaButton = new JButton("TBA");
+        //pane.add(tbaButton, BorderLayout.PAGE_END);
+        
+        alarmPanel.setPreferredSize(new Dimension(200, 200));
+        pane.add(alarmPanel, BorderLayout.PAGE_END);
         
         
         

@@ -1,5 +1,9 @@
 package clock;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 //********************************************************
@@ -11,5 +15,22 @@ import javax.swing.JPanel;
 
 public class AlarmPanel extends JPanel
 {
+    PriorityQueue<Alarm> q;
+    public AlarmPanel(PriorityQueue<Alarm> q)
+    {
+        setLayout(new GridBagLayout());
+        
+        GridBagConstraints gc = new GridBagConstraints();
+        gc.gridy = 0;
+        gc.weightx = 1;
+        gc.weighty = 1;
+        gc.fill = GridBagConstraints.NONE;
+        
+        gc.gridx = 0;
+        add(new JLabel ("Alarm"+ q.toString()), gc);
+               
+        
+
+    }
     
 }
