@@ -3,8 +3,6 @@ package clock;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionListener;
-import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -25,17 +23,19 @@ public class AddAlarmDialog extends JDialog{
     private JSpinner alarmEntrySpinner;
     private SpinnerDateModel alarmEntryModel;
     PriorityQueue<Date> q;
+    AlarmPanel alarmPanel;
     
     
     
-    public AddAlarmDialog(JFrame parent)
+    public AddAlarmDialog(JFrame parent, PriorityQueue<Date> q)
     {
         super(parent, "Add Alarm", true);
-         q = new SortedArrayPriorityQueue<>(8);
+         //q = new SortedArrayPriorityQueue<>(8);
         addButton = new JButton("Add");
        // cancelButton = new JButton("Cancel");
         alarmEntryModel = new SpinnerDateModel();
         alarmEntrySpinner = new JSpinner(alarmEntryModel);
+        
         
         
         setLayout(new GridBagLayout());
@@ -57,8 +57,7 @@ public class AddAlarmDialog extends JDialog{
         addButton.addActionListener(new AddAlarmButtonHandler(q,  alarmEntryModel));
         add(addButton, gc);
         
-        //gc.gridy ++;
-       // add(cancelButton, gc);
+        
         
         
         setSize(200,200);

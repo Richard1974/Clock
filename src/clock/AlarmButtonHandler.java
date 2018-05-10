@@ -33,6 +33,7 @@ public class AlarmButtonHandler implements ActionListener{
          dialog.setLocationRelativeTo(parent);
          dialog.setVisible(true);
          dialog.q = queue;
+         System.out.println("alarm button handler q = " + dialog.q.toString());
          
          
         

@@ -24,18 +24,15 @@ public class AddAlarmButtonHandler implements ActionListener {
     
     
     PriorityQueue<Date> queue;
-    //Date newAlarm;
+    
     private SpinnerDateModel newAlarm;
     
     
- 
    public AddAlarmButtonHandler(PriorityQueue<Date> q, SpinnerDateModel enteredAlarm) 
     {
         queue = q;
         
         newAlarm = enteredAlarm;
-        
-         
     }
 
     @Override
@@ -46,6 +43,7 @@ public class AddAlarmButtonHandler implements ActionListener {
         try{
             queue.add(date);
             System.out.println("alarm list is now = " + queue.toString());
+            
             } catch (QueueOverflowException ex) 
             {
                 System.out.println("Add operation failed: " + ex);
