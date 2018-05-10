@@ -5,13 +5,19 @@
  */
 package clock;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
  * @author coldw
+ * @param <Date>
  */
-public class UnsortedArrayPriorityQueue<T>implements PriorityQueue<T> {
+public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
     
     /**
      * Where the data is actually stored.
@@ -35,7 +41,7 @@ public class UnsortedArrayPriorityQueue<T>implements PriorityQueue<T> {
      *
      * @param size
      */
-    public UnsortedArrayPriorityQueue(int size) 
+    public SortedArrayPriorityQueue(int size) 
     {
         storage = new Object[size];
         capacity = size;
@@ -44,37 +50,96 @@ public class UnsortedArrayPriorityQueue<T>implements PriorityQueue<T> {
     
     
     @Override
-    public T head() throws QueueUnderflowException 
+    public Date head() throws QueueUnderflowException 
     {
         if (isEmpty()) {
             throw new QueueUnderflowException();
         } else {
             
-            // Finds the item in the array with the highest priority value
-            Calendar highestPriority = (Calendar) ((PriorityItem<T>) storage[0]).getItem();
-            int highestPriorityIndex = 0;
-            for (int i = 0; i <= tailIndex; i++) {
-                if (highestPriority.before((Calendar)((PriorityItem<T>) storage[i]).getItem()))
-                {
-                    highestPriority = (Calendar) ((PriorityItem<T>) storage[i]).getItem();
-                    highestPriorityIndex = i;
-                }
-            }
-            return ((PriorityItem<T>) storage[highestPriorityIndex]).getItem();
+            return ((PriorityItem<T>) storage[0]).getAlarm();
+            
         }
     }
 
     @Override
-    public void add(T item) throws QueueOverflowException {
+    public void add(Date alarm) throws QueueOverflowException {
         tailIndex = tailIndex + 1;
         if (tailIndex >= capacity) {
             /* No resizing implemented, but that would be a good enhancement. */
             tailIndex = tailIndex - 1;
             throw new QueueOverflowException();
         } else {
-            storage[tailIndex] = new PriorityItem<>(item);
-        }
+            /* Scan backwards looking for insertion point */
+            int i = tailIndex;
+            
+            
+           
+            while (i > 0 && checkDate(i,  DateConvert (storage[i - 1]), alarm )) 
+            {
+               
+                storage[i] = storage[i - 1];
+                i = i - 1;
+                
+            }
+            storage[i] = new PriorityItem<>(alarm);
+            System.out.println("storage[0] = " + storage[0]);
+           
+            }
+          
     }
+    
+   
+        public Date DateConvert(Object date)
+        {
+            
+           
+            
+            
+            
+            Date dateFormatted = null;
+            String stringDate = date.toString();
+            System.out.println("stringDate= " + stringDate);
+            
+            //             EEE MMM dd HH:mm:ss z yyyy
+            //stringDate = "Thu May 10 11:30:28 BST 2018";
+            SimpleDateFormat formatter = new SimpleDateFormat("(EEE MMM dd HH:mm:ss zzz yyyy)");
+        
+
+        try {
+
+            dateFormatted = formatter.parse(stringDate);
+            System.out.println(dateFormatted);
+            
+            } 
+        catch (ParseException e)
+            {
+                e.printStackTrace();
+            }
+            
+            
+          
+            return dateFormatted;
+        }
+    
+        public boolean checkDate (int i, Date oldDate, Date newDate)
+        {
+
+            if (oldDate.after(newDate))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+
+
+
+        }
+                
+    
+    
     
     @Override
     public void remove() throws QueueUnderflowException {

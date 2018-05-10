@@ -3,6 +3,8 @@ package clock;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -15,8 +17,8 @@ import javax.swing.JPanel;
 
 public class AlarmPanel extends JPanel
 {
-    PriorityQueue<Alarm> q;
-    public AlarmPanel(PriorityQueue<Alarm> q)
+    PriorityQueue<Calendar> q;
+    public AlarmPanel(PriorityQueue<Date> q)
     {
         setLayout(new GridBagLayout());
         
@@ -32,5 +34,7 @@ public class AlarmPanel extends JPanel
         
 
     }
+    
+    
     
 }

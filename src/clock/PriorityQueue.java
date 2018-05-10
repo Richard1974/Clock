@@ -4,24 +4,25 @@
  * and open the template in the editor.
  */
 package clock;
-
+import java.util.Date;
 /**
  *
  * @author coldw
+ * @param <Date>
  */
 
 
 
-public interface PriorityQueue<T> {
+public interface PriorityQueue<Date> {
 
     /**
      * Add the given item to the queue with the given priority. Throw an
      * exception if it's already full to capacity.
      *
-     * @param item
+     * @param alarm
      * @throws QueueOverflowException
      */
-    public void add(T item) throws QueueOverflowException;
+    public void add(Date alarm) throws QueueOverflowException;
 
     /**
      * The highest priority item stored. Throw an exception if it's empty.
@@ -29,7 +30,7 @@ public interface PriorityQueue<T> {
      * @return The item with the highest priority
      * @throws QueueUnderflowException
      */
-    public T head() throws QueueUnderflowException;
+    public Date head() throws QueueUnderflowException;
 
     /**
      * Remove the highest priority item from the queue. Throw an exception if

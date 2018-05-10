@@ -23,13 +23,13 @@ import javax.swing.SpinnerDateModel;
 public class AddAlarmButtonHandler implements ActionListener {
     
     
-    PriorityQueue<Alarm> queue;
+    PriorityQueue<Date> queue;
     //Date newAlarm;
     private SpinnerDateModel newAlarm;
     
     
  
-   public AddAlarmButtonHandler(PriorityQueue<Alarm> q, SpinnerDateModel enteredAlarm) 
+   public AddAlarmButtonHandler(PriorityQueue<Date> q, SpinnerDateModel enteredAlarm) 
     {
         queue = q;
         
@@ -41,13 +41,11 @@ public class AddAlarmButtonHandler implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-        System.out.println("Add Alarm Button Pressed"); 
-        System.out.println("new Alarm = " + newAlarm.getDate());
-        Alarm alarm = new Alarm(Calendar.getInstance());
-        alarm.setDate(newAlarm.getDate());
-        System.out.println("new alarm object before saving = " + alarm);
-        try {
-            queue.add(alarm);
+        Date date = (Date) newAlarm.getValue(); 
+         
+        try{
+            queue.add(date);
+            System.out.println("alarm list is now = " + queue.toString());
             } catch (QueueOverflowException ex) 
             {
                 System.out.println("Add operation failed: " + ex);

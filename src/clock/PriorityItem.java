@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package clock;
+
+import java.util.Date;
 
 
 /**
@@ -13,22 +11,25 @@ package clock;
  */
 public class PriorityItem<T> {
 
-    private final T item;
+    private Date alarm;
     
-
-    public PriorityItem(T item) {
-        this.item = item;
+ 
+    
+    
+    public PriorityItem(Date alarm) {
+        this.alarm = alarm;
         
     }
+  
 
-    public T getItem() {
-        return item;
+    public Date getAlarm() {
+        return alarm;
     }
 
 
     
     @Override
     public String toString() {
-        return "(" + getItem() + ")";
+        return "(" + getAlarm() + ")";
     }
 }

@@ -1,6 +1,8 @@
 package clock;
 
 import java.awt.*;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.*;
 import java.util.Observer;
 import java.util.Observable;
@@ -8,10 +10,10 @@ import java.util.Observable;
 public class View implements Observer {
     
     ClockPanel panel;
-    PriorityQueue<Alarm> q;
+    PriorityQueue<Date> q;
     AlarmPanel alarmPanel;
     
-    public View(Model model, PriorityQueue<Alarm> q) {
+    public View(Model model, PriorityQueue<Date> q) {
         JFrame frame = new JFrame();
         panel = new ClockPanel(model);
         alarmPanel = new AlarmPanel(q);
@@ -52,6 +54,7 @@ public class View implements Observer {
     
     public void update(Observable o, Object arg) 
     {
+        
         panel.repaint();
     }
 }
