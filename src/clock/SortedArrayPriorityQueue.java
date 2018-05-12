@@ -102,14 +102,14 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
     @Override
     public String toString() 
     {
-        String result = "[";
+        String result = "";
         for (int i = 0; i <= tailIndex; i++) {
             if (i > 0) {
                 result = result + ", ";
             }
             result = result + storage[i];
         }
-        result = result + "]";
+        result = result + "";
         return result;
     }
     

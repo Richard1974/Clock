@@ -28,12 +28,15 @@ public class AddAlarmButtonHandler implements ActionListener {
     private SpinnerDateModel newAlarm;
     AlarmPanel alarmPanel;
     
-   public AddAlarmButtonHandler(PriorityQueue<Date> q, SpinnerDateModel enteredAlarm, AlarmPanel panel) 
+   AddAlarmDialog addAlarmDialog;
+    
+   public AddAlarmButtonHandler(PriorityQueue<Date> q, SpinnerDateModel enteredAlarm, AlarmPanel panel, AddAlarmDialog dialog) 
     {
         queue = q;
         
         newAlarm = enteredAlarm;
         alarmPanel = panel;
+        addAlarmDialog = dialog;
     }
 
     @Override
@@ -50,6 +53,7 @@ public class AddAlarmButtonHandler implements ActionListener {
             {
                 System.out.println("Add operation failed: " + ex);
             }
+            addAlarmDialog.setVisible(false);
           
     }
 }

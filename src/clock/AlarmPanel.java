@@ -4,6 +4,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.util.Date;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -57,18 +58,22 @@ public class AlarmPanel extends JPanel
         {
             System.out.println("Not Empty Now !!!!");
             
+            
+            String alarmList = q.toString();
+            String[] alarms = alarmList.split(",");
+            
+            
             this.removeAll();
             setLayout(new GridBagLayout());
         
             GridBagConstraints gc = new GridBagConstraints();
-            gc.gridy = 0;
-            gc.weightx = 1;
-            gc.weighty = 1;
-            gc.fill = GridBagConstraints.NONE;
 
-            gc.gridx = 0;
-            
-            add(new JLabel ("Alarm"+ q.toString()), gc);
+            for (int i = 0; i < alarms.length; i++)
+            {
+                gc.gridy = i;
+                gc.gridx = 0;
+                add(new JLabel ("Alarm"+ alarms[i]), gc);
+            }                
         }
         
         this.revalidate();
