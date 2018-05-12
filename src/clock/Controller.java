@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class Controller {
@@ -69,8 +70,14 @@ public class Controller {
                        System.out.println("ALARM ALARM ALARM: " + dateNow + firstAlarm);
                        queue.removeSelected(0);
                        view.alarmPanel.update(queue);
+                       infoBox("ALARM", "Alarm Notification");
                     }
                 }
     }
-            
+    
+    //creates pop up to alert user to alarm
+    public static void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "" + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }     
 }
