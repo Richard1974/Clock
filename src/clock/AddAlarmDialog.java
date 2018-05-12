@@ -19,25 +19,20 @@ import javax.swing.SpinnerDateModel;
 public class AddAlarmDialog extends JDialog{   
     
     private JButton addButton;
-   // private JButton cancelButton;
     private JSpinner alarmEntrySpinner;
     private SpinnerDateModel alarmEntryModel;
     PriorityQueue<Date> q;
     AlarmPanel alarmPanel;
-    
-    
     
     public AddAlarmDialog(JFrame parent, PriorityQueue<Date> q, AlarmPanel panel)
     {
         super(parent, "Add Alarm", true);
          
         addButton = new JButton("Add");
-       
         alarmEntryModel = new SpinnerDateModel();
         alarmEntrySpinner = new JSpinner(alarmEntryModel);
         alarmPanel = panel;
-        
-        
+                
         setLayout(new GridBagLayout());
         
         GridBagConstraints gc = new GridBagConstraints();
@@ -56,16 +51,7 @@ public class AddAlarmDialog extends JDialog{
         gc.gridy ++;
         addButton.addActionListener(new AddAlarmButtonHandler(q,  alarmEntryModel, alarmPanel, this));
         add(addButton, gc);
-        
-        
-        
-        
+                
         setSize(200,200);
-        
-              
     }
-
-   
-
-    
 }

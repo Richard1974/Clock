@@ -136,7 +136,9 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
         return result;
     }
     
-    //converts the Object Date into a Date that can beu sed for comparison
+    
+    @Override
+    //converts the Object Date into a Date that can be used for comparison
     public Date DateConvert(Object date)
     {
         Date dateFormatted = null;

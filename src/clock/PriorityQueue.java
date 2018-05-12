@@ -72,6 +72,6 @@ public interface PriorityQueue<Date> {
      */
     public String toString();
 
-    
+    public Date DateConvert(Object date);
 }
 
