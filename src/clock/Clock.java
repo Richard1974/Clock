@@ -12,6 +12,5 @@ public class Clock {
         View view = new View(model, q);
         model.addObserver(view);
         Controller controller = new Controller(model, view, q);
-        
     }
 }

@@ -71,7 +71,8 @@ public interface PriorityQueue<Date> {
      * For example: [(Fred, 10), (Mabel, 15), (Jane, 5)]
      */
     public String toString();
-
+    
+    //Converts a dat einto the corretc forat for comparisions
     public Date DateConvert(Object date);
 }
 

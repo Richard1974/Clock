@@ -42,37 +42,37 @@ public class Controller {
     public void checkAlarms()
     {
         //if alarms are in the queue then need to check if alarm is going to go off
-                if (!queue.isEmpty())
-                {
-                    //Get The Current date and Time to for comparison
-                    DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-                    dateNow = new Date();
-                    try {
-                        dateNow = dateFormat.parse(dateFormat.format(new Date()));
-                    } catch (ParseException ex) {
-                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    String currentDateTimeString = dateFormat.format(dateNow);
-                    System.out.println("currentDateTimeString = " + currentDateTimeString);
-                    
-                    //Get the first alarm in the queue 
-                    firstAlarm = new Date();
-                    try {
-                        firstAlarm = queue.head();
-                    } catch (QueueUnderflowException ex) {
-                        Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    System.out.println("first alarm = " + firstAlarm);
-                  
-                    //compare the alarm with current time
-                    if ( dateNow.compareTo(firstAlarm) == 0)
-                    {
-                       System.out.println("ALARM ALARM ALARM: " + dateNow + firstAlarm);
-                       queue.removeSelected(0);
-                       view.alarmPanel.update(queue);
-                       infoBox("ALARM", "Alarm Notification");
-                    }
-                }
+        if (!queue.isEmpty())
+        {
+            //Get The Current date and Time to for comparison
+            DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+            dateNow = new Date();
+            try {
+                dateNow = dateFormat.parse(dateFormat.format(new Date()));
+            } catch (ParseException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String currentDateTimeString = dateFormat.format(dateNow);
+            System.out.println("currentDateTimeString = " + currentDateTimeString);
+
+            //Get the first alarm in the queue 
+            firstAlarm = new Date();
+            try {
+                firstAlarm = queue.head();
+            } catch (QueueUnderflowException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("first alarm = " + firstAlarm);
+
+            //compare the alarm with current time
+            if ( dateNow.compareTo(firstAlarm) == 0)
+            {
+               System.out.println("ALARM ALARM ALARM: " + dateNow + firstAlarm);
+               queue.removeSelected(0);
+               view.alarmPanel.update(queue);
+               infoBox("ALARM", "Alarm Notification");
+            }
+        }
     }
     
     //creates pop up to alert user to alarm

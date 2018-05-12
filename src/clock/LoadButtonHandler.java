@@ -10,10 +10,10 @@ import java.awt.event.*;
 //********************************************************
 
 public class LoadButtonHandler implements ActionListener
-
 {
-     public void actionPerformed(ActionEvent event){
-         System.out.println("Load Button Pressed");
+    public void actionPerformed(ActionEvent event)
+    {
+        System.out.println("Load Button Pressed");
     }
 }
 

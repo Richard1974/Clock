@@ -29,9 +29,9 @@ public class DeleteButtonHandler implements ActionListener{
         alarmNumber = number;
     }
     
-    
-     public void actionPerformed(ActionEvent event){
-         System.out.println("DELETE Button Pressed" + alarmNumber);
+     public void actionPerformed(ActionEvent event)
+     {
+         //System.out.println("DELETE Button Pressed" + alarmNumber);
          queue.removeSelected(alarmNumber);
          alarmPanel.update(queue);
     }

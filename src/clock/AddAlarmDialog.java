@@ -52,6 +52,6 @@ public class AddAlarmDialog extends JDialog{
         addButton.addActionListener(new AddAlarmButtonHandler(q,  alarmEntryModel, alarmPanel, this));
         add(addButton, gc);
                 
-        setSize(200,200);
+        setSize(300,200);
     }
 }

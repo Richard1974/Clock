@@ -13,23 +13,19 @@ public class PriorityItem<T> {
 
     private Date alarm;
     
- 
-    
-    
-    public PriorityItem(Date alarm) {
+    public PriorityItem(Date alarm) 
+    {
         this.alarm = alarm;
-        
     }
   
-
-    public Date getAlarm() {
+    public Date getAlarm() 
+    {
         return alarm;
     }
-
-
     
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return "(" + getAlarm() + ")";
     }
 }

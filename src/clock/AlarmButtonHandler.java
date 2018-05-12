@@ -26,16 +26,12 @@ public class AlarmButtonHandler implements ActionListener{
         queue = q;
     }
 
-   
-    
-     public void actionPerformed(ActionEvent event){
-         System.out.println("Alarm Button Pressed");
-         dialog.setLocationRelativeTo(parent);
-         dialog.setVisible(true);
-         dialog.q = queue;
-         System.out.println("alarm button handler q = " + dialog.q.toString());
-         
-         
-        
+    public void actionPerformed(ActionEvent event)
+    {
+        System.out.println("Alarm Button Pressed");
+        dialog.setLocationRelativeTo(parent);
+        dialog.setVisible(true);
+        dialog.q = queue;
+        System.out.println("alarm button handler q = " + dialog.q.toString());
     }
 }

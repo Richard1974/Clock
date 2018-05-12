@@ -23,7 +23,7 @@ public class View implements Observer {
         // Start of border layout code
         Container pane = frame.getContentPane();
         
-        panel.setPreferredSize(new Dimension(200, 200));
+        panel.setPreferredSize(new Dimension(300, 200));
         pane.add(panel, BorderLayout.PAGE_START);
         
         JButton alarmButton = new JButton("ADD ALARM");
@@ -37,14 +37,9 @@ public class View implements Observer {
         JButton saveButton = new JButton("SAVE");
         saveButton.addActionListener(new SaveButtonHandler());
         pane.add(saveButton, BorderLayout.LINE_END);
-        
-        //JButton tbaButton = new JButton("TBA");
-        //pane.add(tbaButton, BorderLayout.PAGE_END);
-        
+                
         alarmPanel.setPreferredSize(new Dimension(200, 200));
         pane.add(alarmPanel, BorderLayout.PAGE_END);
-        
-        
         
         // End of borderlayout code
         
@@ -54,8 +49,6 @@ public class View implements Observer {
     
     public void update(Observable o, Object arg) 
     {
-        
         panel.repaint();
-            
     }
 }

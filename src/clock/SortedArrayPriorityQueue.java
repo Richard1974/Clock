@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clock;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- *
- * @author coldw
- * @param <Date>
- */
-public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
-    
+//********************************************************
+//**  Sorted Array Priority Queue                       **
+//**  used to store the Date Objects in a sorte darray  **
+//**  @author Richard Coldwell                          **
+//**  18th April 2018                                   **
+//********************************************************
+public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> 
+{
     /**
      * Where the data is actually stored.
      */
@@ -58,7 +54,8 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
     }
 
     @Override
-    public void add(Date alarm) throws QueueOverflowException {
+    public void add(Date alarm) throws QueueOverflowException 
+    {
         tailIndex = tailIndex + 1;
         if (tailIndex >= capacity) 
         {
@@ -79,7 +76,8 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
     }
     
     @Override
-    public void remove() throws QueueUnderflowException {
+    public void remove() throws QueueUnderflowException 
+    {
         if (isEmpty()) 
         {
             throw new QueueUnderflowException();
@@ -94,10 +92,8 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
     }
     
     @Override
-    public void removeSelected(int position)  {
-        
-       
-        
+    public void removeSelected(int position)  
+    {
         // starting at the point that the alarm is removed from it now shifts all alarms 
         // after this by 1 space to fill in the gap
         int i = position;
@@ -107,14 +103,7 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
             i = i + 1;
         }
         tailIndex = tailIndex - 1;
-        
     }
-    
-    
-    
-    
-    
-    
     
     @Override
     public boolean isEmpty() 

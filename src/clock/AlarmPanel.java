@@ -22,17 +22,7 @@ public class AlarmPanel extends JPanel
     {
         update(q);
     }
-       
-    
-//    public void fireTableDataChanged()
-//    {
-//        setLayout(new GridLayout(0, 3));
-//    
-//                }
-    
-    
-    
-    
+  
     public void update(PriorityQueue<Date> q) 
     {
         if (q.isEmpty())
@@ -54,10 +44,8 @@ public class AlarmPanel extends JPanel
         }
         else
         {
-            
-            
             System.out.println("Not Empty Now !!!!");
-            //Get allthe alarms from the priority queue and store in array
+            //Get all the alarms from the priority queue and store in array
             String alarmList = q.toString();
             String[] alarms = alarmList.split(",");
             JButton[] buttons  = new JButton[alarms.length];
@@ -84,23 +72,11 @@ public class AlarmPanel extends JPanel
                 gbc.gridy = i;
                 gbc.gridx = 1;
                 add(btn, gbc);
-                
-                
-                
-                
             }                
         }
-        
         this.revalidate();
         this.repaint();
-        
-        
-        
-        
     }   
-    
-    
-    
 }
     
     
