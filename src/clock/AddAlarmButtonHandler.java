@@ -12,8 +12,6 @@ import javax.swing.SpinnerDateModel;
 
 
 //********************************************************
-
-
 //**  Add Alarm Button Handler                          **
 //**  used to handle interactions with ADD ALARM button **
 //**  @author Richard Coldwell                          **
