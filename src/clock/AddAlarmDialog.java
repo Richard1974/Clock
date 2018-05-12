@@ -27,7 +27,7 @@ public class AddAlarmDialog extends JDialog{
     
     
     
-    public AddAlarmDialog(JFrame parent, PriorityQueue<Date> q)
+    public AddAlarmDialog(JFrame parent, PriorityQueue<Date> q, AlarmPanel panel)
     {
         super(parent, "Add Alarm", true);
          //q = new SortedArrayPriorityQueue<>(8);
@@ -35,7 +35,7 @@ public class AddAlarmDialog extends JDialog{
        // cancelButton = new JButton("Cancel");
         alarmEntryModel = new SpinnerDateModel();
         alarmEntrySpinner = new JSpinner(alarmEntryModel);
-        
+        alarmPanel = panel;
         
         
         setLayout(new GridBagLayout());
@@ -54,7 +54,7 @@ public class AddAlarmDialog extends JDialog{
         add(alarmEntrySpinner, gc );
         
         gc.gridy ++;
-        addButton.addActionListener(new AddAlarmButtonHandler(q,  alarmEntryModel));
+        addButton.addActionListener(new AddAlarmButtonHandler(q,  alarmEntryModel, alarmPanel));
         add(addButton, gc);
         
         

@@ -21,7 +21,7 @@ public class Controller {
         listener = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 model.update();
-                view.alarmPanel.update(queue);
+                //view.alarmPanel.update(queue);
                }
         };
         

@@ -1,6 +1,10 @@
 package clock;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.util.Date;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 //********************************************************
@@ -17,19 +21,58 @@ public class AlarmPanel extends JPanel
     {
         update(q);
     }
-          
+       
+    
+    public void fireTableDataChanged()
+    {
+        setLayout(new GridLayout(0, 3));
+    
+                
+   
+                }
+    
+    
+    
+    
     public void update(PriorityQueue<Date> q) 
     {
         if (q.isEmpty())
         {
-             System.out.println("queue Is Empty !!!!");
-             //TODO display message saying no alarms in queue
+            System.out.println("queue Is Empty !!!!");
+             
+            this.removeAll();
+            setLayout(new GridBagLayout());
+        
+            GridBagConstraints gc = new GridBagConstraints();
+            gc.gridy = 0;
+            gc.weightx = 1;
+            gc.weighty = 1;
+            gc.fill = GridBagConstraints.NONE;
+
+            gc.gridx = 0;
+            
+            add(new JLabel ("NO ALARMS SET YET!"), gc);  
         }
         else
         {
-         System.out.println("Not Empty Now !!!!");
-             //TODO display list of alarms with buttons to delete alarm
+            System.out.println("Not Empty Now !!!!");
+            
+            this.removeAll();
+            setLayout(new GridBagLayout());
+        
+            GridBagConstraints gc = new GridBagConstraints();
+            gc.gridy = 0;
+            gc.weightx = 1;
+            gc.weighty = 1;
+            gc.fill = GridBagConstraints.NONE;
+
+            gc.gridx = 0;
+            
+            add(new JLabel ("Alarm"+ q.toString()), gc);
         }
+        
+        this.revalidate();
+        this.repaint();
     }   
 }
     
