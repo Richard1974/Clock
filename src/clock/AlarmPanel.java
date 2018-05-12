@@ -77,11 +77,7 @@ public class AlarmPanel extends JPanel
                 gbc.gridx = 0;
                 add(new JLabel (alarms[i]), gbc);
                 
-                //gbc.gridy = i;
-                //gbc.gridx = 1;
-                //add(new JButton("Delete Alarm " + i),gbc);
-                
-                JButton btn = new JButton("Delete " + i);
+                JButton btn = new JButton("Delete");
                 buttons[i]  = btn;
                 
                 btn.addActionListener(new DeleteButtonHandler(q, this, i ));
@@ -90,7 +86,7 @@ public class AlarmPanel extends JPanel
                 gbc.gridy = i;
                 gbc.gridx = 1;
                 add(btn, gbc);
-                //System.out.println(buttons[i]);
+                
                 
                 
                 

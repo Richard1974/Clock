@@ -94,6 +94,29 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> {
     }
     
     @Override
+    public void removeSelected(int position)  {
+        
+       
+        
+        // starting at the point that the alarm is removed from it now shifts all alarms 
+        // after this by 1 space to fill in the gap
+        int i = position;
+        while (i<tailIndex){
+
+            storage[i] = storage[i + 1];
+            i = i + 1;
+        }
+        tailIndex = tailIndex - 1;
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    @Override
     public boolean isEmpty() 
     {
         return tailIndex < 0;

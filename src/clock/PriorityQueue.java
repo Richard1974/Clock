@@ -41,10 +41,19 @@ public interface PriorityQueue<Date> {
     public void remove() throws QueueUnderflowException;
 
     /**
+     * Remove the chosen priority item from the queue. 
+     */
+    public void removeSelected(int position)  ;
+        
+       
+    /**
      * Is the queue empty?
      *
      * @return True if there are no items stored, otherwise False
      */
+    
+    
+    
     public boolean isEmpty();
 
     @Override
