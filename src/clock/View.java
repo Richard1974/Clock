@@ -12,13 +12,32 @@ public class View implements Observer {
     ClockPanel panel;
     PriorityQueue<Date> q;
     AlarmPanel alarmPanel;
+   
     
     public View(Model model, PriorityQueue<Date> q) {
-        JFrame frame = new JFrame();
+        final JFrame frame = new JFrame();
         panel = new ClockPanel(model);
         alarmPanel = new AlarmPanel(q);
         frame.setTitle("Java Clock");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
+        // checks that user is sure they want to save before exitng application
+        frame.addWindowListener(new java.awt.event.WindowAdapter() 
+        {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) 
+            {
+                if (JOptionPane.showConfirmDialog(frame, 
+                    "Do You wish to close window or go back and save alarms first", "Close Check", 
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
+                {
+                    System.exit(0);
+                }
+            }
+        });
+        
+        
         
         // Start of border layout code
         Container pane = frame.getContentPane();
@@ -51,4 +70,5 @@ public class View implements Observer {
     {
         panel.repaint();
     }
+    
 }
