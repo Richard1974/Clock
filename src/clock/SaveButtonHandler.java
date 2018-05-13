@@ -31,13 +31,7 @@ public class SaveButtonHandler implements ActionListener
     public void actionPerformed(ActionEvent event)
     {
         System.out.println("Save Button Pressed");
-
-       
-        
-        
-        // parent component of the dialog
-        
-
+  
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Specify a file to save");    
 

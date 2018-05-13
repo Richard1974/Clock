@@ -5,10 +5,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- *
- * @author coldw
- */
+//***********************************************************
+//**  ICalendar builder                                    **
+//**  used to build the ICalendar save file                **
+//**  gets passed the queue and the path to save file to   **
+//**  @author Richard Coldwell                             **
+//**  13th May 2018                                        **
+//***********************************************************
 public class ICalendarBuilder {
     
     PriorityQueue<Date> queue;

@@ -16,8 +16,9 @@ import javax.swing.JFrame;
 public class LoadButtonHandler implements ActionListener
 {
     
-     private JFrame parent;
+    private JFrame parent;
      PriorityQueue<Date> queue;
+     ICalendarLoader iCalendarLoader;
     
     public LoadButtonHandler(JFrame j, PriorityQueue<Date> q) 
     {
@@ -41,6 +42,7 @@ public class LoadButtonHandler implements ActionListener
         {
             File selectedFile = fileChooser.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            iCalendarLoader = new ICalendarLoader(queue, selectedFile.getAbsolutePath());
         }
     }
 }
