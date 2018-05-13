@@ -22,7 +22,6 @@ public class SaveButtonHandler implements ActionListener
     
     public SaveButtonHandler(JFrame j, PriorityQueue<Date> q) 
     {
-        
         parent = j;
         queue = q;
     }
@@ -39,12 +38,11 @@ public class SaveButtonHandler implements ActionListener
 
         if (userSelection == JFileChooser.APPROVE_OPTION) 
         {
+            // opens file chooser for user to choose save location and filename
             File fileToSave = fileChooser.getSelectedFile();
-            System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+            // calls iCalendar builder and passes queue and the file save path
             iCalendarBuilder = new ICalendarBuilder(queue, fileToSave.getAbsolutePath());
         }
-        
-        
-}
+    }
 }
 

@@ -27,12 +27,9 @@ public class ICalendarBuilder {
     String beginVAlarm = "BEGIN:VALARM";
     String endVEvent = "END:VEVENT";
     String endVCal = "END:VCALENDAR";
-    
-
-    
+     
     public ICalendarBuilder(PriorityQueue<Date> q, String saveFilePath)
     {
-        
         queue = q;
         //date format for saving in iCalendar File
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
@@ -41,50 +38,49 @@ public class ICalendarBuilder {
         String alarmList = queue.toString();
         String[] alarms = alarmList.split(",");
        
-        
+        // creates the filename to save file as
         StringBuilder builder = new StringBuilder();
-            builder.append(saveFilePath);
-            builder.append(".ics");
+        builder.append(saveFilePath);
+        builder.append(".ics");
         
-        try {
-
-                File file = new File(builder.toString());
-
-                // if file doesnt exists, then create it
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-
-                FileWriter fw = new FileWriter(file.getAbsoluteFile());
-                BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(beginVCal+NL);
-                bw.write(version+NL);
-                bw.write(prodId+NL);
-                bw.write(beginVEvent+NL);
-                bw.write(uid+NL);
-                bw.write(dtStamp+NL);
-                bw.write(dtStart+NL);
-                
-                for (int i = 0; i < alarms.length; i++)
-                {
-                    bw.write(beginVAlarm+NL);
-                    String date = dateFormat.format(queue.DateConvert(alarms[i].trim()));
-                    bw.write("TRIGGER;VALUE=DATE-TIME:" + date + NL);
-                    bw.write("ACTION:DISPLAY"+NL);
-                    bw.write("DESCRIPTION:Alarm"+NL);
-                    bw.write("END:VALARM"+NL); 
-                }
-                bw.write(endVEvent+NL);
-                bw.write(endVCal);
-                
-                bw.close();
-                
-
-                System.out.println("Done");
-                
-            } catch (IOException e) {
-                e.printStackTrace();
+        // builds the file
+        try 
+        {
+            File file = new File(builder.toString());
+            // if file doesnt exists, then create it
+            if (!file.exists()) 
+            {
+                file.createNewFile();
             }
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(beginVCal+NL);
+            bw.write(version+NL);
+            bw.write(prodId+NL);
+            bw.write(beginVEvent+NL);
+            bw.write(uid+NL);
+            bw.write(dtStamp+NL);
+            bw.write(dtStart+NL);
+            // loops through alarms nd adds them to file 
+            for (int i = 0; i < alarms.length; i++)
+            {
+                bw.write(beginVAlarm+NL);
+                String date = dateFormat.format(queue.DateConvert(alarms[i].trim()));
+                bw.write("TRIGGER;VALUE=DATE-TIME:" + date + NL);
+                bw.write("ACTION:DISPLAY"+NL);
+                bw.write("DESCRIPTION:Alarm"+NL);
+                bw.write("END:VALARM"+NL); 
+            }
+            bw.write(endVEvent+NL);
+            bw.write(endVCal);
+
+            bw.close();
+            } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
         
     }
     

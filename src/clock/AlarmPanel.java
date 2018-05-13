@@ -25,24 +25,21 @@ public class AlarmPanel extends JPanel
   
     public void update(PriorityQueue<Date> q) 
     {
+        //if there are no alarms in the queue display a message advising this
         if (q.isEmpty())
         {
-            //System.out.println("queue Is Empty !!!!");
-             
             this.removeAll();
             setLayout(new GridBagLayout());
-        
             GridBagConstraints gc = new GridBagConstraints();
             gc.gridy = 0;
             gc.weightx = 1;
             gc.weighty = 1;
             gc.fill = GridBagConstraints.NONE;
-
             gc.gridx = 0;
-            
             add(new JLabel ("NO ALARMS SET YET!"), gc);  
         }
-        else
+        //if there are alarms in the queue display them
+        else 
         {
             //System.out.println("Not Empty Now !!!!");
             //Get all the alarms from the priority queue and store in array

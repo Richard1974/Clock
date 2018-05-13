@@ -17,7 +17,6 @@ import javax.swing.JFrame;
 
 public class LoadButtonHandler implements ActionListener
 {
-    
     private JFrame parent;
     PriorityQueue<Date> queue;
     ICalendarLoader iCalendarLoader;
@@ -29,7 +28,6 @@ public class LoadButtonHandler implements ActionListener
         parent = j;
         queue = q;
     }
-    
     
     public void actionPerformed(ActionEvent event)
     {
@@ -50,7 +48,5 @@ public class LoadButtonHandler implements ActionListener
             alarmPanel.update(queue);
         }
     }
-    
-   
 }
 

@@ -6,10 +6,6 @@
 package clock;
 
 /**
- *
- * @author coldw
- */
-/**
  * Queue is full.
  *
  * Cannot accept a new item.

@@ -37,17 +37,23 @@ public class ICalendarLoader {
         File file =new File(loadFilePath);
         System.out.println("loadFilePath = " + loadFilePath);
         Scanner in = null;
-        try {
+        // looks through the file that is being loaded for lines that begin with TRIGGER 
+        // as this is the line that the alarm details are stored on and loads these lines only 
+        try 
+        {
             in = new Scanner(file);
             while(in.hasNext())
             {
                 String line=in.nextLine();
                 if(line.contains("TRIGGER"))//only need the lines that begin with TRIGGER to get the alarms
                 {  
+                    // removes the standard text from these lines leaving a string with alarm details only
                     alarmList.add(line.replace("TRIGGER;VALUE=DATE-TIME:", ""));
                 }   
             }
-        } catch (FileNotFoundException e) {
+        } 
+        catch (FileNotFoundException e) 
+        {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -65,8 +71,7 @@ public class ICalendarLoader {
         }
     }
     
-    
-    
+    // method called to create date objects from the date information stored in th eloaded strings
      public Date[] CreateDateFromString (String[] alarms)
      {
          //iCalendar date format File
@@ -87,7 +92,6 @@ public class ICalendarLoader {
             {
                 e.printStackTrace();
             }
-            
          }
         return alarmsAsDate;
      }

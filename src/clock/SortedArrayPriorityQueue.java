@@ -1,9 +1,9 @@
 package clock;
 
-import static clock.Controller.infoBox;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 //********************************************************
 //**  Sorted Array Priority Queue                       **
@@ -76,6 +76,7 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
             if(!CheckDateIsInFuture(DateConvert(storage[i])))
             {
                 removeSelected(i);
+                
                 infoBox("The Alarm you entered was in the past so has not been added", "Add Alarm Warning");
             }
         } 
@@ -166,6 +167,7 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
         }
     }
     
+    // used to check if the alarm date is in the future as no point setting alarms in the past
     public boolean CheckDateIsInFuture(Date alarm)
     {
         Date date = new Date();
@@ -178,4 +180,11 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
             return false;
         }
     }
+    
+    
+    //creates pop up to alert user to alarm being in the past
+    public void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "" + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }  
 }

@@ -21,7 +21,7 @@ public class View implements Observer {
         frame.setTitle("Java Clock");
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
-        // checks that user is sure they want to save before exitng application
+        // checks that user is sure they want to save before exiting application
         frame.addWindowListener(new java.awt.event.WindowAdapter() 
         {
             @Override
@@ -36,8 +36,6 @@ public class View implements Observer {
                 }
             }
         });
-        
-        
         
         // Start of border layout code
         Container pane = frame.getContentPane();

@@ -4,8 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-
- //**********************************************************
+//**********************************************************
 //**  Delete Alarm Button Handler                          **
 //**  used to handle interactions with DELETE ALARM button **
 //**  @author Richard Coldwell                             **
@@ -26,11 +25,8 @@ public class DeleteButtonHandler implements ActionListener{
     
      public void actionPerformed(ActionEvent event)
      {
-         //System.out.println("DELETE Button Pressed" + alarmNumber);
+         //removes selected alarm from queue an dthen refreshes alarm panel
          queue.removeSelected(alarmNumber);
          alarmPanel.update(queue);
     }
-     
-     
-     
 }

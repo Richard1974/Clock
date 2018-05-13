@@ -1,6 +1,5 @@
 package clock;
 
-
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.Date;
@@ -13,6 +12,8 @@ import javax.swing.SpinnerDateModel;
 //********************************************************
 //**  AddAlarmDialog                                    **
 //**  A Dialog for entering alarm details               **
+//**  displays a JSpinner for alarm entry and a button  **
+//**  to add alarm                                      ** 
 //**  @author Richard Coldwell                          **
 //**  19th April 2018                                   **
 //********************************************************

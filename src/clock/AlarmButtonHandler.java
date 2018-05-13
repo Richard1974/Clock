@@ -1,7 +1,6 @@
 package clock;
 
 import java.awt.event.*;
-import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JFrame;
 
@@ -28,7 +27,6 @@ public class AlarmButtonHandler implements ActionListener{
 
     public void actionPerformed(ActionEvent event)
     {
-        System.out.println("Alarm Button Pressed");
         dialog.setLocationRelativeTo(parent);
         dialog.setVisible(true);
         dialog.q = queue;

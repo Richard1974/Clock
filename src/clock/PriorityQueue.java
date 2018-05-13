@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clock;
-import java.util.Date;
-/**
- *
- * @author coldw
- * @param <Date>
- */
-
-
+//********************************************************
+//**  Priority Queue                                    **
+//**  used to handle interactions with LOAD button      **
+//**  @author Richard Coldwell                          **
+//**  18th April 2018                                   **
+//********************************************************
 
 public interface PriorityQueue<Date> {
 
@@ -72,7 +65,9 @@ public interface PriorityQueue<Date> {
      */
     public String toString();
     
-    //Converts a dat einto the corretc forat for comparisions
+    /*
+    / Converts a date into the correct format for comparisions
+    * */
     public Date DateConvert(Object date);
 }
 

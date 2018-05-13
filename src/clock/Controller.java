@@ -30,7 +30,7 @@ public class Controller {
         listener = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 model.update();
-                checkAlarms();
+                checkAlarms();// used to chekc if alarm is to be triggered
             }
         };
         
@@ -53,7 +53,6 @@ public class Controller {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
             String currentDateTimeString = dateFormat.format(dateNow);
-            //System.out.println("currentDateTimeString = " + currentDateTimeString);
 
             //Get the first alarm in the queue 
             firstAlarm = new Date();
@@ -62,7 +61,6 @@ public class Controller {
             } catch (QueueUnderflowException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
-            //System.out.println("first alarm = " + firstAlarm);
 
             //compare the alarm with current time
             if ( dateNow.compareTo(firstAlarm) == 0)
@@ -75,8 +73,8 @@ public class Controller {
     }
     
     //creates pop up to alert user to alarm
-    public static void infoBox(String infoMessage, String titleBar)
+    public  void infoBox(String infoMessage, String titleBar)
     {
-        JOptionPane.showMessageDialog(null, infoMessage, "" + titleBar, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(view.panel, infoMessage, "" + titleBar, JOptionPane.INFORMATION_MESSAGE);
     }     
 }
