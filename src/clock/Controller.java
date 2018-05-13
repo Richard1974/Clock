@@ -67,7 +67,6 @@ public class Controller {
             //compare the alarm with current time
             if ( dateNow.compareTo(firstAlarm) == 0)
             {
-               System.out.println("ALARM ALARM ALARM: " + dateNow + firstAlarm);
                queue.removeSelected(0);
                view.alarmPanel.update(queue);
                infoBox("ALARM", "Alarm Notification");

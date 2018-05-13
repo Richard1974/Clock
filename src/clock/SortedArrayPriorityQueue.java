@@ -1,5 +1,6 @@
 package clock;
 
+import static clock.Controller.infoBox;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -71,10 +72,11 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
                 i = i - 1;
             }
             storage[i] = new PriorityItem<>(alarm);
+            // check if date of entered alarm is in the future, if so delete it and display dialog
             if(!CheckDateIsInFuture(DateConvert(storage[i])))
             {
-                System.out.println(!CheckDateIsInFuture(DateConvert(storage[i])));
                 removeSelected(i);
+                infoBox("The Alarm you entered was in the past so has not been added", "Add Alarm Warning");
             }
         } 
     }
