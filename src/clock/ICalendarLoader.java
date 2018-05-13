@@ -6,10 +6,15 @@
 package clock;
 
 import java.io.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 //***********************************************************
 //**  ICalendar Loader                                     **
@@ -28,6 +33,7 @@ public class ICalendarLoader {
     
     public ICalendarLoader(PriorityQueue<Date> q, String loadFilePath)
     {
+        queue = q;
         File file =new File(loadFilePath);
         System.out.println("loadFilePath = " + loadFilePath);
         Scanner in = null;
@@ -46,9 +52,44 @@ public class ICalendarLoader {
             e.printStackTrace();
         }
         String[] alarms = alarmList.toArray(new String[0]);
+        Date[] alarmsAsDate = CreateDateFromString(alarms);
         
+        
+        try {
+            for (int i = 0; i < alarmsAsDate.length; i++)
+        {
+            queue.add(alarmsAsDate[i]);
+        }
+        } catch (QueueOverflowException ex) {
+            Logger.getLogger(ICalendarLoader.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
-   
     
+    
+     public Date[] CreateDateFromString (String[] alarms)
+     {
+         //iCalendar date format File
+        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
+         Date[] alarmsAsDate = new Date[alarms.length];
+        for (int i = 0; i < alarms.length; i++)
+        {
+            Date dateFormatted = null;
+            String stringDate = alarms[i].toString();
+            
+            try 
+            {
+                dateFormatted = dateFormat.parse(stringDate);
+                System.out.println(dateFormatted);
+                alarmsAsDate[i] = dateFormatted;
+            }
+            catch (ParseException e)
+            {
+                e.printStackTrace();
+            }
+            
+         }
+        return alarmsAsDate;
+     }
+
 }

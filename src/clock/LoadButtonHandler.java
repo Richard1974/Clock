@@ -2,6 +2,8 @@ package clock;
 
 import java.awt.event.*;
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -17,12 +19,13 @@ public class LoadButtonHandler implements ActionListener
 {
     
     private JFrame parent;
-     PriorityQueue<Date> queue;
-     ICalendarLoader iCalendarLoader;
+    PriorityQueue<Date> queue;
+    ICalendarLoader iCalendarLoader;
+    AlarmPanel alarmPanel;
     
-    public LoadButtonHandler(JFrame j, PriorityQueue<Date> q) 
+    public LoadButtonHandler(JFrame j, PriorityQueue<Date> q, AlarmPanel panel) 
     {
-        
+        alarmPanel = panel;
         parent = j;
         queue = q;
     }
@@ -43,7 +46,10 @@ public class LoadButtonHandler implements ActionListener
             File selectedFile = fileChooser.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
             iCalendarLoader = new ICalendarLoader(queue, selectedFile.getAbsolutePath());
+            alarmPanel.update(queue);
         }
     }
+    
+   
 }
 
