@@ -53,7 +53,7 @@ public class Controller {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
             String currentDateTimeString = dateFormat.format(dateNow);
-            System.out.println("currentDateTimeString = " + currentDateTimeString);
+            //System.out.println("currentDateTimeString = " + currentDateTimeString);
 
             //Get the first alarm in the queue 
             firstAlarm = new Date();
@@ -62,7 +62,7 @@ public class Controller {
             } catch (QueueUnderflowException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("first alarm = " + firstAlarm);
+            //System.out.println("first alarm = " + firstAlarm);
 
             //compare the alarm with current time
             if ( dateNow.compareTo(firstAlarm) == 0)

@@ -43,7 +43,7 @@ public class AddAlarmButtonHandler implements ActionListener {
         {
             queue.add(date);
             alarmPanel.update(queue);
-            System.out.println("alarm list is now = " + queue.toString());
+            System.out.println("alarm list is now = " + "*" + queue.toString() );
             
         } 
         catch (QueueOverflowException ex) 

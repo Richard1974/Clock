@@ -27,7 +27,7 @@ public class AlarmPanel extends JPanel
     {
         if (q.isEmpty())
         {
-            System.out.println("queue Is Empty !!!!");
+            //System.out.println("queue Is Empty !!!!");
              
             this.removeAll();
             setLayout(new GridBagLayout());
@@ -44,7 +44,7 @@ public class AlarmPanel extends JPanel
         }
         else
         {
-            System.out.println("Not Empty Now !!!!");
+            //System.out.println("Not Empty Now !!!!");
             //Get all the alarms from the priority queue and store in array
             String alarmList = q.toString();
             String[] alarms = alarmList.split(",");
@@ -62,7 +62,6 @@ public class AlarmPanel extends JPanel
                 gbc.gridy = i;
                 gbc.gridx = 0;
                 add(new JLabel (alarms[i]), gbc);
-                
                 JButton btn = new JButton("Delete");
                 buttons[i]  = btn;
                 

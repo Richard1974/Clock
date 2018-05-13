@@ -18,6 +18,7 @@ public class SaveButtonHandler implements ActionListener
      
      private JFrame parent;
      PriorityQueue<Date> queue;
+     ICalendarBuilder iCalendarBuilder;
     
     public SaveButtonHandler(JFrame j, PriorityQueue<Date> q) 
     {
@@ -31,6 +32,9 @@ public class SaveButtonHandler implements ActionListener
     {
         System.out.println("Save Button Pressed");
 
+       
+        
+        
         // parent component of the dialog
         
 
@@ -43,8 +47,10 @@ public class SaveButtonHandler implements ActionListener
         {
             File fileToSave = fileChooser.getSelectedFile();
             System.out.println("Save as file: " + fileToSave.getAbsolutePath());
-
+            iCalendarBuilder = new ICalendarBuilder(queue, fileToSave.getAbsolutePath());
         }
+        
+        
 }
 }
 
