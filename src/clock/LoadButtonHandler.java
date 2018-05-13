@@ -33,19 +33,20 @@ public class LoadButtonHandler implements ActionListener
     
     public void actionPerformed(ActionEvent event)
     {
-        System.out.println("Load Button Pressed");
-        
-         JFileChooser fileChooser = new JFileChooser();
-        
+        // create a new file chooser
+        JFileChooser fileChooser = new JFileChooser();
+        // set directory that file chooser opens in
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
 
         int result = fileChooser.showOpenDialog(parent);
         
         if (result == JFileChooser.APPROVE_OPTION) 
         {
+            //save the selected file
             File selectedFile = fileChooser.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            // load the ICalendar loader class passing the queue and path to the file
             iCalendarLoader = new ICalendarLoader(queue, selectedFile.getAbsolutePath());
+            //update the alarm panel after completing load operation
             alarmPanel.update(queue);
         }
     }

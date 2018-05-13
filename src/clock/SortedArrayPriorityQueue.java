@@ -71,7 +71,11 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
                 i = i - 1;
             }
             storage[i] = new PriorityItem<>(alarm);
-            System.out.println("storage[0] = " + storage[0]);
+            if(!CheckDateIsInFuture(DateConvert(storage[i])))
+            {
+                System.out.println(!CheckDateIsInFuture(DateConvert(storage[i])));
+                removeSelected(i);
+            }
         } 
     }
     
@@ -151,6 +155,19 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
     public boolean checkDate (int i, Date oldDate, Date newDate)
     {
         if (oldDate.after(newDate))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean CheckDateIsInFuture(Date alarm)
+    {
+        Date date = new Date();
+        if (alarm.after(date))
         {
             return true;
         }
