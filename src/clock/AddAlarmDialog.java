@@ -9,14 +9,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
-//********************************************************
-//**  AddAlarmDialog                                    **
-//**  A Dialog for entering alarm details               **
-//**  displays a JSpinner for alarm entry and a button  **
-//**  to add alarm                                      ** 
-//**  @author Richard Coldwell                          **
-//**  19th April 2018                                   **
-//********************************************************
+
+/**
+ * AddAlarmDialog
+ * A Dialog for entering alarm details
+ * displays a JSpinner for alarm entry and a button
+ * to add alarm 
+ * @author Richard Coldwell
+ * 19th April 2018
+ */
 public class AddAlarmDialog extends JDialog{   
     
     private JButton addButton;
@@ -25,6 +26,12 @@ public class AddAlarmDialog extends JDialog{
     PriorityQueue<Date> q;
     AlarmPanel alarmPanel;
     
+    /**
+     *
+     * @param parent
+     * @param q
+     * @param panel
+     */
     public AddAlarmDialog(JFrame parent, PriorityQueue<Date> q, AlarmPanel panel)
     {
         super(parent, "Add Alarm", true);

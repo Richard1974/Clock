@@ -8,21 +8,30 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-//********************************************************
-//**  AlarmPanel Class                                  **
-//**  A panel for displaying a list of alarms           **
-//**  @author Richard Coldwell                          **
-//**  19th April 2018                                   **
-//********************************************************
+/**
+ * AlarmPanel Class
+ * A panel for displaying a list of alarms
+ * @author Richard Coldwell
+ * 19th April 2018
+ */
 
 public class AlarmPanel extends JPanel 
 {
     PriorityQueue<Date> q;
+
+    /**
+     *
+     * @param q
+     */
     public AlarmPanel(PriorityQueue<Date> q)
     {
         update(q);
     }
   
+    /**
+     *
+     * @param q 
+     */
     public void update(PriorityQueue<Date> q) 
     {
         //if there are no alarms in the queue display a message advising this

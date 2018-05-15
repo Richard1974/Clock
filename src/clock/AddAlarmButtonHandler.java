@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.SpinnerDateModel;
 
-//********************************************************
-//**  Add Alarm Button Handler                          **
-//**  used to handle interactions with ADD ALARM button **
-//**  @author Richard Coldwell                          **
-//**  27th April 2018                                   **
-//********************************************************
+/**
+ * Add Alarm Button Handler   
+ * used to handle interactions with ADD ALARM button
+ * @author Richard Coldwell
+ * 27th April 2018
+ */
 
 public class AddAlarmButtonHandler implements ActionListener 
 {
@@ -20,6 +20,13 @@ public class AddAlarmButtonHandler implements ActionListener
     AlarmPanel alarmPanel;
     AddAlarmDialog addAlarmDialog;
     
+    /**
+     *
+     * @param q
+     * @param enteredAlarm
+     * @param panel
+     * @param dialog
+     */
     public AddAlarmButtonHandler(PriorityQueue<Date> q, SpinnerDateModel enteredAlarm, AlarmPanel panel, AddAlarmDialog dialog) 
     {
         queue = q;

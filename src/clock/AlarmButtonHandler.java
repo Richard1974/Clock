@@ -4,12 +4,12 @@ import java.awt.event.*;
 import java.util.Date;
 import javax.swing.JFrame;
 
-//********************************************************
-//**  Alarm Button Handler                              **
-//**  used to handle interactions with ALARM button     **
-//**  @author Richard Coldwell                          **
-//**  17th April 2018                                   **
-//********************************************************
+/**
+ * Alarm Button Handler
+ * used to handle interactions with ALARM button
+ * @author Richard Coldwell
+ * 17th April 2018 
+ */
 
 public class AlarmButtonHandler implements ActionListener{
     
@@ -17,6 +17,12 @@ public class AlarmButtonHandler implements ActionListener{
      private JFrame parent;
      PriorityQueue<Date> queue;
     
+    /**
+     *
+     * @param d
+     * @param j
+     * @param q
+     */
     public AlarmButtonHandler(AddAlarmDialog d, JFrame j, PriorityQueue<Date> q) 
     {
         dialog = d;

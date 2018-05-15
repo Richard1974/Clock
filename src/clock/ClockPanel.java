@@ -6,10 +6,18 @@ import java.awt.geom.*;
 import java.awt.font.*;
 import javax.swing.*;
 
+/**
+ * The Clock panel used to visually display the clock
+ * @author Richard Coldwell
+ */
 public class ClockPanel extends JPanel {
     
     Model model;
     
+    /**
+     *
+     * @param m
+     */
     public ClockPanel(Model m) {
         model = m;
         setPreferredSize(new Dimension(200, 200));
