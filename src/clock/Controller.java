@@ -10,6 +10,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
+/**
+ * Controller class used to update the clock model and check for 
+ * alarms going off
+ * @author Richard Coldwell
+ */
 public class Controller {
     
     ActionListener listener;
@@ -22,6 +27,12 @@ public class Controller {
     Date firstAlarm;
     Date dateNow;
     
+    /**
+     *
+     * @param m
+     * @param v
+     * @param q
+     */
     public Controller(Model m, View v, PriorityQueue<Date> q) {
         model = m;
         view = v;
@@ -30,7 +41,7 @@ public class Controller {
         listener = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 model.update();
-                checkAlarms();// used to chekc if alarm is to be triggered
+                checkAlarms();// used to check if alarm is to be triggered
             }
         };
         
@@ -38,7 +49,10 @@ public class Controller {
         timer.start();
     }
     
-    //** Checks if current time is same as alarm time
+    
+    /**
+     * Checks if current time is same as alarm time
+     */
     public void checkAlarms()
     {
         //if alarms are in the queue then need to check if alarm is going to go off
@@ -72,7 +86,12 @@ public class Controller {
         }
     }
     
-    //creates pop up to alert user to alarm
+   
+    /**
+     * creates pop up to alert user to alarm
+     * @param infoMessage
+     * @param titleBar
+     */
     public  void infoBox(String infoMessage, String titleBar)
     {
         JOptionPane.showMessageDialog(view.panel, infoMessage, "" + titleBar, JOptionPane.INFORMATION_MESSAGE);

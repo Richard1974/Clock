@@ -6,12 +6,12 @@ import java.io.File;
 import java.util.Date;
 import javax.swing.JFrame;
 
-//********************************************************
-//**  Save Button Handler                               **
-//**  used to handle interactions with SAVE button      **
-//**  @author Richard Coldwell                          **
-//**  18th April 2018                                   **
-//********************************************************
+/**
+ * Save Button Handler 
+ * used to handle interactions with SAVE button
+ * @author Richard Coldwell
+ * 18th April 2018 
+ */
 
 public class SaveButtonHandler implements ActionListener
 {
@@ -20,6 +20,11 @@ public class SaveButtonHandler implements ActionListener
      PriorityQueue<Date> queue;
      ICalendarBuilder iCalendarBuilder;
     
+    /**
+     *
+     * @param j
+     * @param q
+     */
     public SaveButtonHandler(JFrame j, PriorityQueue<Date> q) 
     {
         parent = j;

@@ -5,13 +5,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-//***********************************************************
-//**  ICalendar builder                                    **
-//**  used to build the ICalendar save file                **
-//**  gets passed the queue and the path to save file to   **
-//**  @author Richard Coldwell                             **
-//**  13th May 2018                                        **
-//***********************************************************
+/**
+ * ICalendar builder 
+ * used to build the ICalendar save file
+ * gets passed the queue and the path to save file to
+ * @author Richard Coldwell
+ * 13th May 2018
+ */
 public class ICalendarBuilder {
     
     PriorityQueue<Date> queue;
@@ -28,6 +28,11 @@ public class ICalendarBuilder {
     String endVEvent = "END:VEVENT";
     String endVCal = "END:VCALENDAR";
      
+    /**
+     *
+     * @param q
+     * @param saveFilePath
+     */
     public ICalendarBuilder(PriorityQueue<Date> q, String saveFilePath)
     {
         queue = q;

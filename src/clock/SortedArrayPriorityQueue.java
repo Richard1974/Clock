@@ -5,12 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
-//********************************************************
-//**  Sorted Array Priority Queue                       **
-//**  used to store the Date Objects in a sorte darray  **
-//**  @author Richard Coldwell                          **
-//**  18th April 2018                                   **
-//********************************************************
+/**
+ * Sorted Array Priority Queue
+ * used to store the Date Objects in a sorted array 
+ * @author Richard Coldwell
+ * 18th April 2018
+ * @param <T>
+ */
 public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date> 
 {
     /**
@@ -155,6 +156,14 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
     }
     
     //check if the stored Date(oldDate) is after the newDate 
+
+    /**
+     *
+     * @param i
+     * @param oldDate
+     * @param newDate
+     * @return
+     */
     public boolean checkDate (int i, Date oldDate, Date newDate)
     {
         if (oldDate.after(newDate))
@@ -167,7 +176,13 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
         }
     }
     
-    // used to check if the alarm date is in the future as no point setting alarms in the past
+    /**
+     * used to check if the alarm date is in the future as no point 
+     * setting alarms in the past
+
+     * @param alarm
+     * @return
+     */
     public boolean CheckDateIsInFuture(Date alarm)
     {
         Date date = new Date();
@@ -181,8 +196,12 @@ public class SortedArrayPriorityQueue<T>implements PriorityQueue<Date>
         }
     }
     
-    
-    //creates pop up to alert user to alarm being in the past
+
+    /**
+     * creates pop up to alert user to alarm being in the past
+     * @param infoMessage
+     * @param titleBar
+     */
     public void infoBox(String infoMessage, String titleBar)
     {
         JOptionPane.showMessageDialog(null, infoMessage, "" + titleBar, JOptionPane.INFORMATION_MESSAGE);

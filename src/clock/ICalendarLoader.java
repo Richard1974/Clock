@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clock;
 
 import java.io.*;
@@ -16,13 +11,12 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//***********************************************************
-//**  ICalendar Loader                                     **
-//**  used to load the ICalendar file                      **
-//**                                                       **
-//**  @author Richard Coldwell                             **
-//**  13th May 2018                                        **
-//***********************************************************
+/**
+ * ICalendar Loader
+ * used to load the ICalendar file
+ * @author Richard Coldwell 
+ * 13th May 2018
+ */
 public class ICalendarLoader {
     
     
@@ -30,7 +24,11 @@ public class ICalendarLoader {
     PriorityQueue<Date> queue;
     List<String> alarmList = new ArrayList<String>();
     
-    
+    /**
+     *
+     * @param q
+     * @param loadFilePath
+     */
     public ICalendarLoader(PriorityQueue<Date> q, String loadFilePath)
     {
         queue = q;
@@ -71,7 +69,12 @@ public class ICalendarLoader {
         }
     }
     
-    // method called to create date objects from the date information stored in th eloaded strings
+    /**
+     * method called to create date objects from the date 
+     * information stored in the loaded strings
+     * @param alarms
+     * @return
+     */
      public Date[] CreateDateFromString (String[] alarms)
      {
          //iCalendar date format File

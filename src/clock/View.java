@@ -7,13 +7,21 @@ import javax.swing.*;
 import java.util.Observer;
 import java.util.Observable;
 
+/**
+ * Creates the view that shows the clock, buttons and alarm panel
+ * @author Richard Coldwell
+ */
 public class View implements Observer {
     
     ClockPanel panel;
     PriorityQueue<Date> q;
     AlarmPanel alarmPanel;
    
-    
+    /**
+     *
+     * @param model
+     * @param q
+     */
     public View(Model model, PriorityQueue<Date> q) {
         final JFrame frame = new JFrame();
         panel = new ClockPanel(model);

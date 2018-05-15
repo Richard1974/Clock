@@ -13,11 +13,19 @@ public class PriorityItem<T> {
 
     private Date alarm;
     
+    /**
+     * 
+     * @param alarm
+     */
     public PriorityItem(Date alarm) 
     {
         this.alarm = alarm;
     }
   
+    /**
+     *
+     * @return
+     */
     public Date getAlarm() 
     {
         return alarm;

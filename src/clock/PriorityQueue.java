@@ -1,10 +1,12 @@
 package clock;
-//********************************************************
-//**  Priority Queue                                    **
-//**  used to handle interactions with LOAD button      **
-//**  @author Richard Coldwell                          **
-//**  18th April 2018                                   **
-//********************************************************
+
+/**
+ * Priority Queue
+ * used to store the queue of alarms 
+ * @author Richard Coldwell
+ * 18th April 2018
+ * @param <Date>
+ */
 
 public interface PriorityQueue<Date> {
 
@@ -35,8 +37,9 @@ public interface PriorityQueue<Date> {
 
     /**
      * Remove the chosen priority item from the queue. 
+     * @param position
      */
-    public void removeSelected(int position)  ;
+    public void removeSelected(int position);
         
        
     /**
@@ -49,25 +52,28 @@ public interface PriorityQueue<Date> {
     
     public boolean isEmpty();
 
+    /**
+     *
+     * @return
+     */
     @Override
     /**
      * A string representation of the entire queue.
      *
-     * This should be formatted as a list, in square brackets.
-     *
-     * Each item should be shown as an ordered pair in parentheses together with
-     * its priority.
-     *
      * The items may be listed in any order. In particular there is no
      * requirement that the item returned by head() should be listed first.
      *
-     * For example: [(Fred, 10), (Mabel, 15), (Jane, 5)]
      */
     public String toString();
     
-    /*
-    / Converts a date into the correct format for comparisions
-    * */
+    
+
+    /**
+     * Converts a date into the correct format for comparisons
+     * @param date
+     * @return
+     */
+
     public Date DateConvert(Object date);
 }
 

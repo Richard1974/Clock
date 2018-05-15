@@ -4,12 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-//**********************************************************
-//**  Delete Alarm Button Handler                          **
-//**  used to handle interactions with DELETE ALARM button **
-//**  @author Richard Coldwell                             **
-//**  12th May 2018                                        **
-//***********************************************************
+/**
+ * Delete Alarm Button Handler
+ * used to handle interactions with DELETE ALARM button
+ * @author Richard Coldwell 
+ * 12th May 2018
+ */
 
 public class DeleteButtonHandler implements ActionListener{
     
@@ -17,6 +17,12 @@ public class DeleteButtonHandler implements ActionListener{
     AlarmPanel alarmPanel;
     int alarmNumber;
 
+    /**
+     *
+     * @param q
+     * @param panel
+     * @param number
+     */
     public DeleteButtonHandler(PriorityQueue<Date> q, AlarmPanel panel, int number) {
         queue = q;
         alarmPanel = panel;

@@ -2,18 +2,16 @@ package clock;
 
 import java.awt.event.*;
 import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
-//********************************************************
-//**  Load Button Handler                               **
-//**  used to handle interactions with LOAD button      **
-//**  @author Richard Coldwell                          **
-//**  18th April 2018                                   **
-//********************************************************
+/**
+ * Load Button Handler
+ * used to handle interactions with LOAD button
+ * @author Richard Coldwell
+ * 18th April 2018
+ */
 
 public class LoadButtonHandler implements ActionListener
 {
@@ -22,6 +20,12 @@ public class LoadButtonHandler implements ActionListener
     ICalendarLoader iCalendarLoader;
     AlarmPanel alarmPanel;
     
+    /**
+     *
+     * @param j
+     * @param q
+     * @param panel
+     */
     public LoadButtonHandler(JFrame j, PriorityQueue<Date> q, AlarmPanel panel) 
     {
         alarmPanel = panel;
